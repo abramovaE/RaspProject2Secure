@@ -1,0 +1,85 @@
+.tableclass {
+    border: 2px solid darkgray;
+    border-collapse: collapse;
+    font-family: Arial;
+    font-size: 14px;
+    color: #333;
+    word-break: normal;
+}
+
+table{
+    background-color: white;
+}
+
+.tableclass td {
+    padding: 5px;
+    border: 2px solid darkgray;
+    owerflow: hidden;
+}
+
+.tableclass th {
+    padding: 5px;
+    border: 2px solid darkgray;
+    owerflow: hidden;
+    background-color: #eee4ff;
+}
+
+h1 {
+    font-family: Arial;
+    color: darkslateblue;
+}
+
+h2{
+    font-family: Arial;
+    color: darkslateblue;
+}
+
+
+.background-pink{
+    background-color: pink;
+}
+
+.background-green{
+    background-color: #a4d6a3;
+}
+
+.backgroundindex{
+    background-color: cadetblue;
+}
+
+.background{
+    background-color: #99bfc1;
+}
+
+.mainmenu{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    width:33%;
+    height: 10%;
+}
+
+.button{
+    background-color: ghostwhite;
+    border-color: ghostwhite;
+    border-radius: 10px;
+    font-family: Arial;
+    text-align: center;
+    text-valign: center;
+    color: crimson;
+    font-size: 45px;
+    font-weight: bold;
+    line-height: 70px;
+    margin: 3%;
+}
+
+a:link{
+    text-decoration: none;
+}
+
+.information{
+    font-size: large;
+    line-height: normal;
+    color: darkslateblue;
+}

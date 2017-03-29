@@ -1,0 +1,46 @@
+<?xml version= "1.0" encoding= "UTF-8"?>
+<beans:beans xmlns:beans= "http://www.springframework.org/schema/beans"
+             xmlns:xsi= "http://www.w3.org/2001/XMLSchema-instance"
+             xmlns= "http://www.springframework.org/schema/security"
+             xsi:schemaLocation= "http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/security
+       http://www.springframework.org/schema/security/spring-security.xsd">
+
+
+    <beans:bean id="userDetailsServiceImpl" class="com.springapp.mvc.service.UserDetailsServiceImpl"></beans:bean>
+    <beans:bean id="encoder" class="org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder">
+        <beans:constructor-arg name="strength" value="11"/>
+    </beans:bean>
+
+
+    <http auto-config= "true">
+        <intercept-url pattern="/admin" access="hasRole('ROLE_ADMIN')" />
+        <intercept-url pattern="/admin/*" access="hasRole('ROLE_ADMIN')" />
+        <intercept-url pattern="/admin*" access="hasRole('ROLE_ADMIN')" />
+        <intercept-url pattern= "/main" access="hasAnyRole('ROLE_ADMIN, ROLE_USER')"/>
+        <intercept-url pattern= "/*" access="hasAnyRole('ROLE_ADMIN, ROLE_USER')"/>
+
+
+
+
+    </http>
+
+
+    <!--<authentication-manager alias="authenticationManager">-->
+        <!--<authentication-provider>-->
+            <!--<jdbc-user-service data-source-ref="dataSource"-->
+                               <!--users-by-username-query="SELECT username, password, enabled FROM users WHERE username= ?"-->
+                               <!--authorities-by-username-query="SELECT u1.username, u2.authority FROM users u1, authorities u2 WHERE u1.id = u2.userid AND u1.username = ?"/>-->
+            <!--<password-encoder ref="encoder"></password-encoder>-->
+        <!--</authentication-provider>-->
+    <!--</authentication-manager>-->
+
+    <authentication-manager>
+        <authentication-provider user-service-ref="userDetailsServiceImpl">
+            <password-encoder ref="encoder"></password-encoder>
+        </authentication-provider>
+    </authentication-manager>
+
+
+</beans:beans>
